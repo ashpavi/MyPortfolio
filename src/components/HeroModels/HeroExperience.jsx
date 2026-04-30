@@ -22,19 +22,19 @@ const HeroExperience = () => {
         enablePan={false} // Prevents panning of the scene
         enableZoom={!isTablet} // Disables zoom on tablets
         maxDistance={20} // Maximum distance for zooming out
-        minDistance={5} // Minimum distance for zooming in
+        minDistance={10} // Minimum distance for zooming in
         minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
-        maxPolarAngle={Math.PI / 2} // Maximum angle for vertical rotation
+        maxPolarAngle={Math.PI / 1.9} // Maximum angle for vertical rotation
         minAzimuthAngle={-Math.PI / 4}  
         maxAzimuthAngle={Math.PI / 4}   
       />
 
       <HeroLights />
 
-      <Particles count={100} />
+      <Particles count={200} />
 
         <group
-            scale={isMobile? 0.7 :1}
+            scale={isMobile? 0.8 :1}
             position={[0, -4, 0]}
             rotation={[0, -Math.PI/4, 0]}
         >
