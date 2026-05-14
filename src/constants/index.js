@@ -10,13 +10,17 @@
 ]
 
  const counterItems = [
-  { value: 4, suffix: "+", label: "Projects Completed" },
+  { value: 8, suffix: "+", label: "Projects Completed" },
   { value: 10, suffix: "+", label: "Technologies" },
   { value: 500, suffix: "+", label: "Coding Hours" },
-  { value: 3, suffix: "+", label: "Live Projects" },
+  { value: 5, suffix: "+", label: "Live Projects" },
 ];
 
 const navLinks = [
+  {
+    name: "AboutMe",
+    link: "#aboutme",
+  },
   {
     name: "Work",
     link: "#work",
@@ -28,10 +32,6 @@ const navLinks = [
   {
     name: "Skills",
     link: "#skills",
-  },
-  {
-    name: "Testimonials",
-    link: "#testimonials",
   },
 ];
 
@@ -56,43 +56,109 @@ const abilities = [
 const expCards = [
   {
     review:
-      "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+      "Ashen consistently delivered high-quality frontend solutions during his internship, contributing to responsive and user-friendly web applications while quickly adapting to full stack development workflows.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
+    title: "Full Stack Developer Intern",
+    date: "2025(Oct) - 2026(April)",
     responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
+      "Contributed to both frontend and backend development of scalable web applications.",
+      "Integrated Firebase services including authentication, database, and hosting features.",
+      "Collaborated with the development team on bug fixes, UI improvements, and deployment tasks.",
     ],
   },
   {
     review:
-      "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+      "Ashen’s transition from intern to permanent full stack developer showcased his technical growth, reliability, and ability to handle both frontend and backend responsibilities efficiently.",
     imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
+    logoPath: "/images/logo1.png",
     title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
+    date: "2026 - Present",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
-    ],
-  },
-  {
-    review:
-      "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
-    responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Building and maintaining scalable full stack web applications for company projects.",
+      "Developing reusable ecommerce templates with Firebase backend integration.",
+      "Handling UI/UX improvements, responsiveness, deployments, and application optimizations.",
     ],
   },
 ];
 
-export {words, counterItems, navLinks, abilities, expCards}
+const techStackImgs = [
+  {
+    name: "React Developer",
+    imgPath: "/images/logos/react.png",
+  },
+  {
+    name: "Python Developer",
+    imgPath: "/images/logos/python.svg",
+  },
+  {
+    name: "Backend Developer",
+    imgPath: "/images/logos/node.png",
+  },
+  {
+    name: "Interactive Developer",
+    imgPath: "/images/logos/three.png",
+  },
+  {
+    name: "Project Manager",
+    imgPath: "/images/logos/git.svg",
+  },
+];
+
+const techStackIcons = [
+  {
+    name: "React Developer",
+    modelPath: "/models/react_logo-transformed.glb",
+    scale: 1,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Python Developer",
+    modelPath: "/models/python-transformed.glb",
+    scale: 0.8,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Backend Developer",
+    modelPath: "/models/node-transformed.glb",
+    scale: 5,
+    rotation: [0, -Math.PI / 2, 0],
+  },
+  {
+    name: "Interactive Developer",
+    modelPath: "/models/three.js-transformed.glb",
+    scale: 0.05,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Project Manager",
+    modelPath: "/models/git-svg-transformed.glb",
+    scale: 0.05,
+    rotation: [0, -Math.PI / 4, 0],
+  },
+];
+
+const socialImgs = [
+  
+  {
+    name: "Github",
+    url: "https://github.com/ashpavi",
+    imgPath: "/images/Github.png",
+  },
+  {
+    name: "linkedin",
+    url: "https://www.linkedin.com/in/ashen-fernando-2000",
+    imgPath: "/images/linkedin.png",
+  },
+  {
+    name: "insta",
+    url: "https://www.instagram.com/ash_pavi_/",
+    imgPath: "/images/insta.png",
+  },
+  {
+    name: "fb",
+    url: "https://www.facebook.com/",
+    imgPath: "/images/fb.png",
+  },
+];
+export {words, counterItems, navLinks, abilities, expCards, techStackImgs, techStackIcons, socialImgs}
