@@ -13,10 +13,10 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <Hero />
-      <AboutMe />
+      <Hero />      
       <ShowcaseSection />
       <FeatureCards />
+      <AboutMe />
       <ExperienceSection />
       <TechStack/>
       <Contact/>

@@ -57,7 +57,7 @@ const projects = [
   },
   {
     title: 'Portfolio Website',
-    description: 'Interactive animated developer portfolio with GSAP animations and smooth transitions.',
+    description: 'Interactive animated developer portfolio with 3D models, GSAP animations and smooth transitions.',
     tech: 'React • GSAP • TailwindCSS',
     image: '/images/4.png',
     link: '#',
@@ -106,6 +106,7 @@ const ShowcaseSection = () => {
       className="w-full py-24 px-5 md:px-10 lg:px-20"
 
     >
+      
 
       {/* Heading */}
 

@@ -7,7 +7,7 @@ const TechIcons = ({ model }) => {
     const scene = useGLTF(model.modelPath);
 
     useEffect(() => {
-        if(model.name === "Interactive Developer"){
+        if(model.name === "Three.js"){
             scene.scene.traverse((child) => {
                 if(child.isMesh && child.name === "Object_5"){
                     child.material = new THREE.MeshStandardMaterial({ color: "white" });
@@ -23,8 +23,12 @@ const TechIcons = ({ model }) => {
         <Environment preset="city"/>
         <OrbitControls enableZoom={false} />
         <Float speed={5.5} rotationIntensity={0.5} floatIntensity={1}>
-            <group scale={model.scale} rotation={model.rotation}>
-                <primitive object={scene.scene}/>
+            <group
+                scale={model.scale}
+                rotation={model.rotation}
+                position={model.position || [0, 0, 0]}
+                >
+                <primitive object={scene.scene} />
             </group>
         </Float>
     </Canvas>

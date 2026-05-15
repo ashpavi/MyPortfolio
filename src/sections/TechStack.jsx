@@ -29,14 +29,14 @@ const TechStack = () => {
             title="My Prefered Tech Stack"
             sub="The Skills I bring in to the Table"
             />
-            <div>
-                <div className="tech-grid">
+            <div className="mt-14">
+                <div className="grid xl:grid-cols-6 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-5">
                     {techStackIcons.map((icon) => (
                         <div key={icon.name}
-                        className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg">
+                        className="card-border tech-card overflow-hidden group rounded-3xl">
                             <div className="tech-card-animated-bg"/>
                                 <div className="tech-card-content mb-4">
-                                    <div className="tech-icon-wrapper">
+                                    <div className="tech-icon-wrapper h-[220px]">
                                         <TechIcons model={icon} />
                                     </div>
                                     <div className="padding-x w-full ">

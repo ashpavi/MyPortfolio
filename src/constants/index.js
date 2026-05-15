@@ -18,12 +18,12 @@
 
 const navLinks = [
   {
-    name: "AboutMe",
-    link: "#aboutme",
-  },
-  {
     name: "Work",
     link: "#work",
+  },
+  {
+    name: "About Me",
+    link: "#aboutme",
   },
   {
     name: "Experience",
@@ -56,8 +56,8 @@ const abilities = [
 const expCards = [
   {
     review:
-      "Ashen consistently delivered high-quality frontend solutions during his internship, contributing to responsive and user-friendly web applications while quickly adapting to full stack development workflows.",
-    imgPath: "/images/exp1.png",
+      "Ashen demonstrated professionalism, dedication, and strong problem-solving abilities throughout his internship, contributing effectively to both frontend and backend development while delivering responsive and scalable web solutions.",
+    imgPath: "/images/exp1.jpg",
     logoPath: "/images/logo1.png",
     title: "Full Stack Developer Intern",
     date: "2025(Oct) - 2026(April)",
@@ -68,9 +68,7 @@ const expCards = [
     ],
   },
   {
-    review:
-      "Ashen’s transition from intern to permanent full stack developer showcased his technical growth, reliability, and ability to handle both frontend and backend responsibilities efficiently.",
-    imgPath: "/images/exp2.png",
+    imgPath: "/images/exp1.jpg",
     logoPath: "/images/logo1.png",
     title: "Full Stack Developer",
     date: "2026 - Present",
@@ -107,31 +105,39 @@ const techStackImgs = [
 
 const techStackIcons = [
   {
-    name: "React Developer",
+    name: "React",
     modelPath: "/models/react_logo-transformed.glb",
     scale: 1,
     rotation: [0, 0, 0],
   },
   {
-    name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
+    name: "Javascript",
+    modelPath: "/models/javascript_transformed.glb",
+    scale: 47,
     rotation: [0, 0, 0],
+    position: [0, -2.8, 0],
   },
   {
-    name: "Backend Developer",
+    name: "Tailwind CSS",
+    modelPath: "/models/tailwind_css_transformed.glb",
+    scale: 47,
+    rotation: [0, 0, 0],
+    position: [0, -1, 0],
+  },
+  {
+    name: "Node.js",
     modelPath: "/models/node-transformed.glb",
     scale: 5,
     rotation: [0, -Math.PI / 2, 0],
   },
   {
-    name: "Interactive Developer",
+    name: "Three.js",
     modelPath: "/models/three.js-transformed.glb",
     scale: 0.05,
     rotation: [0, 0, 0],
   },
   {
-    name: "Project Manager",
+    name: "Git",
     modelPath: "/models/git-svg-transformed.glb",
     scale: 0.05,
     rotation: [0, -Math.PI / 4, 0],
