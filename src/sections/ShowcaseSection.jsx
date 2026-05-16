@@ -60,7 +60,7 @@ const projects = [
     description: 'Interactive animated developer portfolio with 3D models, GSAP animations and smooth transitions.',
     tech: 'React • GSAP • TailwindCSS',
     image: '/images/4.png',
-    link: '#',
+    link: 'https://my-portfolio-two-lilac-z7s588e53f.vercel.app/',
   },
   
 ]
