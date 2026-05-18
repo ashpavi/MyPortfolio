@@ -1,16 +1,49 @@
-# React + Vite
+Developer Portfolio
+A modern and responsive developer portfolio website built to showcase my projects, technical skills, and experience as a Full-Stack Developer.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Live Demo :https://my-portfolio-two-lilac-z7s588e53f.vercel.app/
 
-Currently, two official plugins are available:
+📌 Features
+Modern and responsive UI
+Smooth animations using GSAP
+Interactive 3D elements with Three.js
+Project showcase section
+Experience and skills section
+Contact section with social links
+Optimized performance and clean design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🛠️ Tech Stack
+Frontend
+React.js
+Vite
+Tailwind CSS
+JavaScript (ES6+)
+GSAP
+Three.js
 
-## React Compiler
+Tools & Platforms
+Git & GitHub
+VS Code
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+📂 Project Structure
+src/
+ ├── components/
+ ├── constants/
+ ├── sections/
+ ├── assets/
+ ├── App.jsx
+ └── main.jsx
 
-## Expanding the ESLint configuration
+<img width="1920" height="8026" alt="4" src="https://github.com/user-attachments/assets/5626019a-18c5-4ee2-9864-e996c6398b7e" />
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+👨‍💻 About Me
+I am a passionate Full-Stack Developer with experience in building responsive web applications using modern technologies. I enjoy creating clean UI designs, smooth user experiences, and scalable applications.
+
+📬 Contact
+GitHub: https://github.com/ashpavi
+LinkedIn: http://www.linkedin.com/in/ashen-fernando-2000
+Email: ashenpavithra@gmail.com
+LinkedIn: https://linkedin.com/in/your-linkedin
+Email: your-email@example.com
