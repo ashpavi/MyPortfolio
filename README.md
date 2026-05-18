@@ -45,5 +45,4 @@ I am a passionate Full-Stack Developer with experience in building responsive we
 GitHub: https://github.com/ashpavi
 LinkedIn: http://www.linkedin.com/in/ashen-fernando-2000
 Email: ashenpavithra@gmail.com
-LinkedIn: https://linkedin.com/in/your-linkedin
-Email: your-email@example.com
+
