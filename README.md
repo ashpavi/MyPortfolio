@@ -26,6 +26,7 @@ Git & GitHub
 VS Code
 
 📂 Project Structure
+
 src/
  ├── components/
  ├── constants/
@@ -39,6 +40,7 @@ src/
 
 
 👨‍💻 About Me
+
 I am a passionate Full-Stack Developer with experience in building responsive web applications using modern technologies. I enjoy creating clean UI designs, smooth user experiences, and scalable applications.
 
 📬 Contact
