@@ -24,4 +24,4 @@ scripts/verify-output
 *.sln
 *.sw?
 
- .env
+.env
