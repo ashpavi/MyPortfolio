@@ -13,7 +13,7 @@
   { value: 8, suffix: "+", label: "Projects Completed" },
   { value: 10, suffix: "+", label: "Technologies" },
   { value: 500, suffix: "+", label: "Coding Hours" },
-  { value: 5, suffix: "+", label: "Live Projects" },
+  { value: 6, suffix: "+", label: "Live Projects" },
 ];
 
 const navLinks = [
@@ -58,24 +58,13 @@ const expCards = [
     review:
       "Ashen demonstrated professionalism, dedication, and strong problem-solving abilities throughout his internship, contributing effectively to both frontend and backend development while delivering responsive and scalable web solutions.",
     imgPath: "/images/exp1.jpg",
-    logoPath: "/images/logo1.png",
+    logoPath: "/images/logo1.webp",
     title: "Full Stack Developer Intern",
     date: "2025(Oct) - 2026(April)",
     responsibilities: [
       "Contributed to both frontend and backend development of scalable web applications.",
       "Integrated Firebase services including authentication, database, and hosting features.",
       "Collaborated with the development team on bug fixes, UI improvements, and deployment tasks.",
-    ],
-  },
-  {
-    imgPath: "/images/exp1.jpg",
-    logoPath: "/images/logo1.png",
-    title: "Full Stack Developer",
-    date: "2026 - Present",
-    responsibilities: [
-      "Building and maintaining scalable full stack web applications for company projects.",
-      "Developing reusable ecommerce templates with Firebase backend integration.",
-      "Handling UI/UX improvements, responsiveness, deployments, and application optimizations.",
     ],
   },
 ];

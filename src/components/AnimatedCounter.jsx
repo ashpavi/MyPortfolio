@@ -7,22 +7,24 @@ const CounterCard = ({ value, suffix, label }) => {
   return (
     <div
       ref={ref}
-      className="bg-zinc-900 rounded-lg p-5 sm:p-6 md:p-8 flex flex-col justify-center items-center text-center"
+      className="bg-zinc-900 rounded-lg p-3 sm:p-5 md:p-8 flex flex-col justify-center items-center text-center min-w-0"
     >
-      <div className="counter-number text-white-50 text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
+      <div className="counter-number text-white-50 text-2xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2">
         {count}
         {suffix}
       </div>
 
-      <div className="text-white-50 text-lg">{label}</div>
+      <div className="text-white-50 text-[11px] sm:text-sm md:text-lg leading-snug">
+        {label}
+      </div>
     </div>
   );
 };
 
 const AnimatedCounter = () => {
   return (
-    <div id="counter" className="padding-x-lg xl:mt-0 mt-32">
-      <div className="mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <div id="counter" className="padding-x-lg relative z-20">
+      <div className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {counterItems.map((item) => (
           <CounterCard
             key={item.label}

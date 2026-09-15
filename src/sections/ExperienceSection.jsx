@@ -7,128 +7,111 @@ import TitleHeader from "../components/TitleHeader";
 import GlowCard from "../components/GlowCard";
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true, limitCallbacks: true });
 
 const Experience = () => {
   useGSAP(() => {
-    // Loop through each timeline card and animate them in
-    // as the user scrolls to each card
-    gsap.utils.toArray(".timeline-card").forEach((card) => {
-      // Animate the card coming in from the left
-      // and fade in
-      gsap.from(card, {
-        // Move the card in from the left
-        xPercent: -100,
-        // Make the card invisible at the start
-        opacity: 0,
-        // Set the origin of the animation to the left side of the card
-        transformOrigin: "left left",
-        // Animate over 1 second
-        duration: 1,
-        // Use a power2 ease-in-out curve
-        ease: "power2.inOut",
-        // Trigger the animation when the card is 80% of the way down the screen
-        scrollTrigger: {
-          // The card is the trigger element
-          trigger: card,
-          // Trigger the animation when the card is 80% down the screen
-          start: "top 80%",
-        },
-      });
+    gsap.from(".exp-review", {
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".experience-section",
+        start: "top 75%",
+        once: true,
+      },
     });
 
-    gsap.to(".timeline", {
-  scaleY: 0,
-  transformOrigin: "bottom bottom",
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".timeline",
-    start: "top center",
-    end: "70% center",
-    scrub: true,
-  },
-});
-    // Loop through each expText element and animate them in
-    // as the user scrolls to each text element
-    gsap.utils.toArray(".expText").forEach((text) => {
-      // Animate the text opacity from 0 to 1
-      // and move it from the left to its final position
-      // over 1 second with a power2 ease-in-out curve
-      gsap.from(text, {
-        // Set the opacity of the text to 0
-        opacity: 0,
-        // Move the text from the left to its final position
-        // (xPercent: 0 means the text is at its final position)
-        xPercent: 0,
-        // Animate over 1 second
-        duration: 1,
-        // Use a power2 ease-in-out curve
-        ease: "power2.inOut",
-        // Trigger the animation when the text is 60% down the screen
-        scrollTrigger: {
-          // The text is the trigger element
-          trigger: text,
-          // Trigger the animation when the text is 60% down the screen
-          start: "top 60%",
-        },
-      });
-    }, "<"); // position parameter - insert at the start of the animation
+    gsap.from(".exp-details", {
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      delay: 0.15,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".experience-section",
+        start: "top 75%",
+        once: true,
+      },
+    });
   }, []);
 
   return (
     <section
-      id="experience"
-      className="flex-center md:mt-40 mt-20 section-padding xl:px-0"
+      className="experience-section flex-center md:mt-40 mt-20 section-padding xl:px-0 overflow-x-hidden"
     >
       <div className="w-full h-full md:px-20 px-5">
         <TitleHeader
           title="Professional Work Experience"
           sub="💼 My Career Overview"
-        /> 
-        <div className="mt-32 relative">
-          <div className="relative z-50 xl:space-y-32 space-y-10">
-            {expCards.map((card) => (
-              <div key={card.title} className="exp-card-wrapper">
-                <div className="xl:w-2/6">
-                  <GlowCard card={card}>
-                    <div>
-                      <img src={card.imgPath} alt="exp-img " />
-                    </div>
-                  </GlowCard>
+        />
+
+        <div className="mt-16 sm:mt-20 md:mt-24">
+          {expCards.map((card) => (
+            <div
+              key={card.title}
+              className="grid grid-cols-1 xl:grid-cols-[minmax(0,5fr)_auto_minmax(0,7fr)] gap-8 xl:gap-12 items-start"
+            >
+              <div className="exp-review min-w-0">
+                <GlowCard card={card}>
+                  <div>
+                    <img
+                      src={card.imgPath}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-auto max-w-full rounded-lg"
+                    />
+                  </div>
+                </GlowCard>
+              </div>
+
+              <div className="hidden xl:flex flex-col items-center pt-6">
+                <div className="size-20 rounded-full border border-black-50 bg-black-100 flex items-center justify-center overflow-hidden shrink-0 z-10">
+                  <img
+                    src={card.logoPath}
+                    alt=""
+                    className="w-[70%] h-[70%] object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
-                <div className="xl:w-4/6">
-                  <div className="flex items-start">
-                    <div className="timeline-wrapper">
-                      <div className="timeline" />
-                      <div className="gradient-line w-1 h-full" />
-                    </div>
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                      <div className="timeline-logo ">
-                        <img src={card.logoPath} alt="logo" />
-                      </div>
-                      <div>
-                        <h1 className="font-semibold text-3xl">{card.title}</h1>
-                        <p className="my-5 text-white-50">
-                          🗓️&nbsp;{card.date}
-                        </p>
-                        <p className="text-[#839CB5] italic">
-                          Responsibilities
-                        </p>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
-                          {card.responsibilities.map(
-                            (responsibility, index) => (
-                              <li key={index} className="text-lg">
-                                {responsibility}
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    </div>
+                <div className="w-px flex-1 min-h-[140px] mt-4 bg-gradient-to-b from-[#62e0ff] via-[#fd5c79] to-transparent" />
+              </div>
+
+              <div className="exp-details min-w-0">
+                <div className="flex items-center gap-4 xl:gap-0 mb-5">
+                  <div className="xl:hidden size-14 rounded-full border border-black-50 bg-black-100 flex items-center justify-center overflow-hidden shrink-0">
+                    <img
+                      src={card.logoPath}
+                      alt=""
+                      className="w-[70%] h-[70%] object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div>
+                    <h1 className="font-semibold text-xl sm:text-2xl md:text-3xl">
+                      {card.title}
+                    </h1>
+                    <p className="mt-2 text-white-50 text-sm sm:text-base">
+                      🗓️&nbsp;{card.date}
+                    </p>
                   </div>
                 </div>
+
+                <p className="text-[#839CB5] italic">Responsibilities</p>
+                <ul className="list-disc ms-5 mt-4 sm:mt-5 flex flex-col gap-3 sm:gap-4 text-white-50">
+                  {card.responsibilities.map((responsibility, index) => (
+                    <li key={index} className="text-sm sm:text-base md:text-lg">
+                      {responsibility}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -2,15 +2,11 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Computer } from "../Computer-optimized";
 
-
-
 const ContactExperience = () => {
   return (
-    <Canvas shadows camera={{ position: [0, 3, 7], fov: 45 }}>
+    <Canvas shadows camera={{ position: [0, 3, 7], fov: 45 }} dpr={[1, 1.5]} style={{ touchAction: "pan-y" }}>
       <ambientLight intensity={0.5} color="#fff4e6" />
-
       <directionalLight position={[5, 5, 3]} intensity={2.5} color="#ffd9b3" />
-
       <directionalLight
         position={[5, 9, 1]}
         castShadow
@@ -20,6 +16,7 @@ const ContactExperience = () => {
 
       <OrbitControls
         enableZoom={false}
+        enablePan={false}
         minPolarAngle={Math.PI / 5}
         maxPolarAngle={Math.PI / 2}
       />

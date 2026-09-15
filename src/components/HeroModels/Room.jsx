@@ -1,68 +1,39 @@
-
-
-import React, { useRef } from "react";
+import React, { useMemo } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
-import { EffectComposer, SelectiveBloom } from "@react-three/postprocessing";
-import { BlendFunction } from "postprocessing";
 import * as THREE from "three";
 
 export function Room(props) {
   const { nodes, materials } = useGLTF("/models/optimized-room.glb");
-  const screensRef = useRef();
   const matcapTexture = useTexture("/images/textures/mat1.png");
 
-  const curtainMaterial = new THREE.MeshPhongMaterial({
-    color: "#d90429",
-  });
+  const customMaterials = useMemo(() => {
+    matcapTexture.colorSpace = THREE.SRGBColorSpace;
 
-  const bodyMaterial = new THREE.MeshPhongMaterial({
-    map: matcapTexture,
-  });
-
-  const tableMaterial = new THREE.MeshPhongMaterial({
-    color: "#582f0e",
-  });
-
-  const radiatorMaterial = new THREE.MeshPhongMaterial({
-    color: "#fff",
-  });
-
-  const compMaterial = new THREE.MeshStandardMaterial({
-    color: "#fff",
-  });
-
-  const pillowMaterial = new THREE.MeshPhongMaterial({
-    color: "#8338ec",
-  });
-
-  const chairMaterial = new THREE.MeshPhongMaterial({
-    color: "#000",
-  });
+    return {
+      curtain: new THREE.MeshPhongMaterial({ color: "#d90429" }),
+      body: new THREE.MeshPhongMaterial({ map: matcapTexture }),
+      table: new THREE.MeshPhongMaterial({ color: "#582f0e" }),
+      radiator: new THREE.MeshPhongMaterial({ color: "#fff" }),
+      computer: new THREE.MeshStandardMaterial({ color: "#fff" }),
+      pillow: new THREE.MeshPhongMaterial({ color: "#8338ec" }),
+      chair: new THREE.MeshPhongMaterial({ color: "#000" }),
+    };
+  }, [matcapTexture]);
 
   return (
     <group {...props} dispose={null}>
-      <EffectComposer>
-        <SelectiveBloom
-          selection={screensRef}
-          intensity={1.5} // Strength of the bloom
-          luminanceThreshold={0.2} // Minimum luminance needed
-          luminanceSmoothing={0.9} // Smooth transition
-          blendFunction={BlendFunction.ADD} // How it blends
-        />
-      </EffectComposer>
       <mesh
         geometry={nodes._________6_blinn1_0.geometry}
-        material={curtainMaterial}
+        material={customMaterials.curtain}
       />
-      <mesh geometry={nodes.body1_blinn1_0.geometry} material={bodyMaterial} />
-      <mesh geometry={nodes.cabin_blinn1_0.geometry} material={tableMaterial} />
+      <mesh geometry={nodes.body1_blinn1_0.geometry} material={customMaterials.body} />
+      <mesh geometry={nodes.cabin_blinn1_0.geometry} material={customMaterials.table} />
       <mesh
         geometry={nodes.chair_body_blinn1_0.geometry}
-        material={chairMaterial}
+        material={customMaterials.chair}
       />
-      <mesh geometry={nodes.comp_blinn1_0.geometry} material={compMaterial} />
+      <mesh geometry={nodes.comp_blinn1_0.geometry} material={customMaterials.computer} />
       <mesh
-        ref={screensRef}
         geometry={nodes.emis_lambert1_0.geometry}
         material={materials.lambert1}
       />
@@ -104,7 +75,7 @@ export function Room(props) {
       />
       <mesh
         geometry={nodes.pillows_blinn1_0.geometry}
-        material={pillowMaterial}
+        material={customMaterials.pillow}
       />
       <mesh
         geometry={nodes.polySurface53_blinn1_0.geometry}
@@ -112,7 +83,7 @@ export function Room(props) {
       />
       <mesh
         geometry={nodes.radiator_blinn1_0.geometry}
-        material={radiatorMaterial}
+        material={customMaterials.radiator}
       />
       <mesh
         geometry={nodes.radiator_blinn1_0001.geometry}
@@ -134,7 +105,7 @@ export function Room(props) {
         geometry={nodes.stylus_blinn1_0.geometry}
         material={materials.blinn1}
       />
-      <mesh geometry={nodes.table_blinn1_0.geometry} material={tableMaterial} />
+      <mesh geometry={nodes.table_blinn1_0.geometry} material={customMaterials.table} />
       <mesh
         geometry={nodes.tablet_blinn1_0.geometry}
         material={materials.blinn1}

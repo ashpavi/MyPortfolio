@@ -40,7 +40,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="flex-center section-padding">
+    <section className="flex-center section-padding overflow-hidden">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
           title="Get in Touch - Let's Connect"
@@ -48,7 +48,7 @@ const Contact = () => {
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5">
-            <div className="flex-center card-border rounded-xl p-10">
+            <div className="flex-center card-border rounded-xl p-5 sm:p-8 md:p-10">
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
@@ -93,15 +93,11 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit" disabled={loading}>
-                  <div className="cta-button group">
-                    <div className="bg-circle" />
-                    <p className="text">
+                <button type="submit" disabled={loading} className="w-full">
+                  <div className="cta-button w-full">
+                    <p className="cta-text">
                       {loading ? "Sending..." : "Send Message"}
                     </p>
-                    <div className="arrow-wrapper">
-                      <img src="/images/arrow-down.svg" alt="arrow" />
-                    </div>
                   </div>
                 </button>
               </form>
@@ -109,7 +105,7 @@ const Contact = () => {
           </div>
 
           {/* RIGHT: Contact Experience */}
-          <div className="xl:col-span-7 min-h-96">
+          <div className="xl:col-span-7 min-h-[280px] h-[300px] sm:h-[380px] xl:h-auto xl:min-h-[540px]">
             <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
               <ContactExperience />
             </div>

@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col justify-center">
           <p>Open to freelance & full-time opportunities.</p>
         </div>
-        <div className="socials">
+        <div className="socials flex-wrap">
         {socialImgs.map((socialImg, index) => (
             <a
             key={index}

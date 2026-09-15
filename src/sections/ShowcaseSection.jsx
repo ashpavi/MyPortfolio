@@ -3,21 +3,23 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true, limitCallbacks: true });
 
 // --- Optimized Laptop Mockup ---
 const LaptopMockup = ({ imgSrc }) => (
-  <div className="relative mx-auto w-full max-w-[440px] group/laptop">
+    <div className="relative mx-auto w-full max-w-[440px] overflow-hidden group/laptop">
     
     {/* Screen Frame */}
-    <div className="relative border-[#2d2d2d] bg-[#2d2d2d] border-[6px] md:border-[8px] rounded-t-xl shadow-lg transition-transform duration-500 will-change-transform group-hover/laptop:-translate-y-1">
+    <div className="relative border-[#2d2d2d] bg-[#2d2d2d] border-[6px] md:border-[8px] rounded-t-xl shadow-lg transition-transform duration-500 group-hover/laptop:-translate-y-1">
 
       <div className="rounded-md overflow-hidden aspect-[16/10] bg-black">
   <div className="h-full overflow-hidden">
     <img
       src={imgSrc}
       alt="Project View"
-      loading="lazy"
+                    loading="lazy"
+      decoding="async"
       className="
         w-full
         object-cover
@@ -26,7 +28,6 @@ const LaptopMockup = ({ imgSrc }) => (
         duration-[2500ms]
         ease-out
         group-hover/laptop:-translate-y-[15%]
-        will-change-transform
       "
     />
   </div>
@@ -46,7 +47,7 @@ const projects = [
     description:
       'Home service marketplace platform with smart service matching and booking features.',
     tech: 'React • TailwindCSS • MongoDB',
-    image: '/images/1.png',
+    image: '/images/1.webp',
     link: 'https://sewa-guru.vercel.app/',
   },
   {
@@ -54,7 +55,7 @@ const projects = [
     description:
       'Modern eCommerce clothing platform with admin dashboard and secure checkout.',
     tech: 'React • TailwindCSS • Firebase',
-    image: '/images/2.png',
+    image: '/images/2.webp',
     link: 'https://wawo-clothing.vercel.app/',
   },
   {
@@ -62,15 +63,23 @@ const projects = [
     description:
       'Organic and herbal product eCommerce web app with responsive modern UI.',
     tech: 'React • TailwindCSS • Firebase',
-    image: '/images/3.png',
+    image: '/images/3.webp',
     link: 'https://organic-garden.vercel.app/',
   },
   {
-    title: 'River Garden Restaurant Website',
+    title: 'SHERRNX',
+    description:
+      'Official website for a music producer, featuring a modern landing experience and Resend-powered contact emails.',
+    tech: 'Next.js • TailwindCSS • Resend',
+    image: '/images/6.png',
+    link: 'https://www.sherrnx.com/',
+  },
+  {
+    title: 'River Garden Restaurant',
     description:
       'Modern restaurant landing page with responsive design and smooth user experience.',
     tech: 'React • TailwindCSS',
-    image: '/images/5.png',
+    image: '/images/5.webp',
     link: 'https://river-garden-restaurant.vercel.app/',
   },
   {
@@ -78,7 +87,7 @@ const projects = [
     description:
       'Interactive animated developer portfolio with 3D models, GSAP animations and smooth transitions.',
     tech: 'React • GSAP • TailwindCSS',
-    image: '/images/4.png',
+    image: '/images/4.webp',
     link: 'https://my-portfolio-two-lilac-z7s588e53f.vercel.app/',
   },
 ]
@@ -94,21 +103,19 @@ const ShowcaseSection = () => {
       duration: 0.7,
       stagger: 0.12,
       ease: 'power3.out',
-      willChange: 'transform, opacity',
-
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top 80%',
         once: true,
+        fastScrollEnd: true,
       },
     })
   }, [])
 
   return (
     <section
-      id="work"
       ref={sectionRef}
-      className="w-full py-24 px-5 md:px-10 lg:px-20"
+      className="w-full py-16 sm:py-24 px-4 sm:px-5 md:px-10 lg:px-20 overflow-hidden"
     >
       {/* Heading */}
       <div className="text-center mb-16">
@@ -116,11 +123,11 @@ const ShowcaseSection = () => {
           My Projects
         </p>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-white">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white px-2">
           Featured Work Showcase
         </h1>
 
-        <p className="text-white-50 max-w-2xl mx-auto mt-5 text-lg">
+        <p className="text-white-50 max-w-2xl mx-auto mt-5 text-base sm:text-lg px-2">
           A collection of modern full-stack and frontend applications crafted
           with performance, responsiveness, and clean UI experiences.
         </p>
@@ -134,7 +141,7 @@ const ShowcaseSection = () => {
           return (
             <div
               key={index}
-              className={`project-card group relative flex flex-col md:flex-row items-center gap-8 p-8 rounded-[2.5rem] border border-white/5 bg-[#0f0f0f] hover:border-white/10 transition-colors duration-500 w-full transform-gpu will-change-transform
+              className={`project-card group relative flex flex-col lg:flex-row items-center gap-5 sm:gap-8 p-5 sm:p-6 md:p-8 rounded-3xl md:rounded-[2.5rem] border border-white/5 bg-[#0f0f0f] hover:border-white/10 transition-colors duration-500 w-full overflow-hidden min-w-0
               
               ${
                 isLast && isOdd
@@ -143,12 +150,12 @@ const ShowcaseSection = () => {
               }`}
             >
               {/* LEFT SIDE */}
-              <div className="w-full md:w-[50%] flex justify-center shrink-0">
+              <div className="w-full lg:w-[50%] flex justify-center shrink-0">
                 <LaptopMockup imgSrc={project.image} />
               </div>
 
               {/* RIGHT SIDE */}
-              <div className="flex flex-col gap-3 w-full md:w-[50%]">
+              <div className="flex flex-col gap-3 w-full lg:w-[50%] min-w-0 text-center lg:text-left items-center lg:items-start">
                 <h2 className="text-xl font-bold text-white tracking-wide">
                   {project.title}
                 </h2>

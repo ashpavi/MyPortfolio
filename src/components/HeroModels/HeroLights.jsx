@@ -1,53 +1,63 @@
-import * as THREE from 'three'
+import { useMemo } from "react";
+import * as THREE from "three";
 
-const HeroLights = () => {
+const HeroLights = ({ reduced = false }) => {
+  const rectLight = useMemo(() => {
+    if (reduced) return null;
+    const light = new THREE.RectAreaLight("#A259FF", 8, 3, 2);
+    light.position.set(1, 3, 4);
+    light.rotation.set(-Math.PI / 4, Math.PI / 4, 0);
+    return light;
+  }, [reduced]);
+
+  if (reduced) {
+    return (
+      <>
+        <ambientLight intensity={0.35} />
+        <spotLight
+          position={[2, 5, 6]}
+          angle={0.2}
+          intensity={70}
+          penumbra={0.4}
+          color="white"
+        />
+        <pointLight position={[1, 2, -2]} intensity={8} color="#0d00a4" />
+      </>
+    );
+  }
+
   return (
     <>
-        <spotLight 
+      <spotLight
         position={[2, 5, 6]}
         angle={0.15}
         intensity={100}
         penumbra={0.2}
         color="white"
-        />
+      />
 
-        <spotLight 
+      <spotLight
         position={[4, 5, 4]}
         angle={0.3}
         intensity={40}
         penumbra={0.5}
         color="#4cc9f0"
-        />
+      />
 
-        <spotLight 
+      <spotLight
         position={[-3, 5, 5]}
         angle={0.4}
         intensity={60}
         penumbra={1}
         color="#9d4edd"
-        />
+      />
 
-        <primitive
-        object={new THREE.RectAreaLight('#A259FF', 8, 3, 2)}
-        position={[1, 3, 4]}
-        intensity={15}
-        rotation={[-Math.PI / 4, Math.PI / 4, 0]}
-        />
+      {rectLight && <primitive object={rectLight} />}
 
-        <pointLight
-        position={[1, 0, 0]}
-        intensity={10}
-        color="#7209b7"
-        />
-
-        <pointLight
-        position={[1, 2, -2]}
-        intensity={10}
-        color="#0d00a4"
-        />
-
+      <pointLight position={[1, 0, 0]} intensity={10} color="#7209b7" />
+      <pointLight position={[1, 2, -2]} intensity={10} color="#0d00a4" />
     </>
-  )
-}
+  );
+};
 
-export default HeroLights
+export default HeroLights;

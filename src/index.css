@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -6,8 +6,10 @@
 }
 
 html,
-body {
-  width: 100dvw;
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   background-color: black;
   color: white;
@@ -16,7 +18,9 @@ body {
 }
 
 section {
-  width: 100dvw;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 @theme {
@@ -81,31 +85,43 @@ section {
   }
 
   .hero-layout {
-    @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
+    @apply relative z-10 mt-24 sm:mt-28 xl:mt-32
+      flex flex-col xl:flex-row
+      xl:items-stretch
+      justify-start
+      xl:h-[calc(100dvh-9rem)] min-h-0
+      gap-4 xl:gap-0
+      pb-6 xl:pb-0;
   }
 
   .hero-text {
-    @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
+    @apply flex flex-col justify-center font-semibold relative z-10 pointer-events-none
+      text-[clamp(1.4rem,5vw,2.75rem)] leading-[1.25];
 
     img {
-      @apply size-8 md:size-10 object-contain;
+      @apply size-6 sm:size-7 md:size-9 object-contain;
     }
 
     .slide {
-      @apply absolute pt-0 px-2 md:px-5 py-[30px] h-[48px] md:h-[78px] md:translate-y-1 translate-y-0 overflow-hidden;
+      @apply relative inline-flex align-bottom overflow-hidden px-1 md:px-2;
+      height: 1.25em;
     }
   }
 
   .hero-badge {
-    @apply bg-black-200 py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
+    @apply bg-black-200 py-2 px-4 rounded-full w-fit max-w-[calc(100%-1rem)] text-center text-sm md:text-base whitespace-normal;
   }
 
   .hero-3d-layout {
-    @apply xl:w-[70%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
+    @apply relative w-full
+      h-[34vh] min-h-[260px] max-h-[340px]
+      sm:h-[320px] sm:max-h-[380px]
+      md:h-[380px] md:max-h-[420px]
+      xl:h-full xl:min-h-0 xl:max-h-none;
   }
 
   .navbar {
-    @apply fixed w-full left-1/2 py-5 px-5 md:px-20 -translate-x-1/2 z-[100] transition-colors duration-300 ease-in-out;
+    @apply fixed w-full left-1/2 py-3 sm:py-5 px-4 sm:px-5 md:px-20 -translate-x-1/2 z-[100] transition-colors duration-300 ease-in-out;
 
     &.scrolled {
       @apply top-0 bg-black;
@@ -115,12 +131,12 @@ section {
       @apply md:top-10 top-0 bg-transparent;
     }
 
-    .inner {
-      @apply mx-auto flex items-center justify-between;
+    > .inner {
+      @apply mx-auto flex items-center justify-between gap-3 w-full max-w-[1600px];
     }
 
     .logo {
-      @apply text-white-50 text-xl md:text-2xl font-semibold transition-transform duration-300 hover:scale-105;
+      @apply text-white-50 text-base sm:text-xl md:text-2xl font-semibold transition-transform duration-300 hover:scale-105 shrink-0;
     }
 
     nav.desktop {
@@ -144,10 +160,8 @@ section {
     }
 
     .contact-btn {
-      @apply flex;
-
       .inner {
-        @apply px-5 py-2 rounded-lg bg-white text-black transition-colors duration-300 group-hover:bg-black-50;
+        @apply px-4 sm:px-5 py-2 rounded-lg bg-white text-black text-sm md:text-base transition-colors duration-300 group-hover:bg-black-50;
 
         span {
           @apply transition-colors duration-300 group-hover:text-white;
@@ -205,42 +219,30 @@ section {
   }
 
   .cta-wrapper {
-    @apply relative z-20 cursor-pointer;
+    @apply relative z-20 inline-flex cursor-pointer;
   }
 
   .cta-button {
-  @apply px-4 py-4 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden;
-
-  .bg-circle {
-    @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2
-    w-[120%] h-[120%]
-    rounded-full bg-white-50
-    transition-[width,height,right] duration-500
-    group-hover:size-10 group-hover:right-10;
+    @apply relative flex items-center justify-center gap-2 rounded-lg bg-white-50 px-4 py-2 md:px-5 md:py-2 cursor-pointer;
+    transition: transform 0.18s ease;
   }
 
-  .text {
-    @apply uppercase md:text-lg text-black
-    transition-transform duration-500
-    group-hover:text-white-50
-    group-hover:-translate-x-5
-    xl:translate-x-0 -translate-x-5;
+  .cta-wrapper:hover .cta-button,
+  button:hover .cta-button {
+    transform: scale(1.05);
   }
 
-  .arrow-wrapper {
-    @apply size-10 rounded-full absolute right-10 top-1/2
-    -translate-y-1/2 flex justify-center items-center overflow-hidden
-    transition-colors duration-300
-    group-hover:bg-white-50;
-
-    img {
-      @apply size-5 xl:-translate-y-32 translate-y-0
-      animate-bounce
-      transition-transform duration-500
-      group-hover:translate-y-0;
-    }
+  .cta-button .cta-text {
+    @apply relative z-10 uppercase text-xs md:text-sm text-black leading-none;
   }
-}
+
+  .cta-button .arrow-wrapper {
+    @apply flex size-6 md:size-7 shrink-0 items-center justify-center rounded-full bg-black/10;
+  }
+
+  .cta-button .arrow-wrapper img {
+    @apply size-3 md:size-3.5;
+  }
 
   .card-border {
     @apply border border-black-50 bg-black-100;
@@ -251,7 +253,7 @@ section {
   }
 
   .timeline-wrapper {
-    @apply absolute top-0 xl:left-[35.5vw] md:left-10 left-5 h-full flex justify-center;
+    @apply absolute top-0 xl:left-[35.5%] md:left-8 left-3 h-full flex justify-center;
   }
 
   .timeline {
@@ -276,10 +278,10 @@ section {
   }
 
   .tech-card-content {
-    @apply flex flex-col md:justify-center items-center xl:gap-5 xl:h-[50vh] overflow-hidden relative z-10;
+    @apply flex flex-col justify-center items-center gap-2 xl:gap-4 py-3 overflow-hidden relative z-10;
 
     & p {
-      @apply text-lg 2xl:text-2xl pb-5 xl:pb-0 font-semibold text-white-50 text-center;
+      @apply text-sm sm:text-base md:text-lg 2xl:text-2xl pb-2 font-semibold text-white-50 text-center px-2;
     }
   }
 
@@ -288,7 +290,7 @@ section {
   }
 
   .tech-icon-wrapper {
-    @apply flex justify-center items-center w-52 h-60 relative;
+    @apply flex justify-center items-center w-full h-36 sm:h-44 md:h-52 xl:h-56 relative;
   }
 
   form {
@@ -314,7 +316,7 @@ section {
     @apply my-10 md:mt-20 mt-10 text-white-50 px-5 md:px-20 xl:px-20 flex items-center justify-center;
 
     .footer-container {
-      @apply grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0 w-full;
+      @apply grid grid-cols-1 md:grid-cols-3 gap-6 items-center w-full;
     }
 
     p {
@@ -322,7 +324,7 @@ section {
     }
 
     .socials {
-      @apply flex items-center justify-center gap-5;
+      @apply flex flex-wrap items-center justify-center gap-3 sm:gap-5;
 
       .icon {
         @apply border border-black-50 bg-black-100
@@ -507,22 +509,12 @@ section {
   opacity: 1;
 }
 
-/* PERFORMANCE OPTIMIZATIONS */
-
-img,
-.project-card,
-.group,
-.card,
 .wrapper {
-  transform: translate3d(0, 0, 0);
   will-change: transform;
-  backface-visibility: hidden;
 }
 
-.project-card {
-  will-change: transform, opacity;
-}
-
-img {
-  will-change: transform;
+canvas {
+  display: block;
+  max-width: 100%;
+  touch-action: pan-y;
 }

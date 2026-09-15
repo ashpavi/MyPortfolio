@@ -36,7 +36,7 @@ const GlowCard = ({ card, children }) => {
     ref={cardRef}
     onMouseEnter={handleMouseEnter}
     onMouseMove={handleMouseMove}
-    className="card card-border timeline-card rounded-xl p-10"
+    className="card card-border rounded-xl p-5 sm:p-8 md:p-10"
   >
     <div className="glow" />
 
@@ -55,7 +55,7 @@ const GlowCard = ({ card, children }) => {
         </div>
 
         <div className="mb-5">
-          <p className="text-white-50 text-lg text-justify">
+          <p className="text-white-50 text-base sm:text-lg text-left sm:text-justify">
             {card.review}
           </p>
         </div>
